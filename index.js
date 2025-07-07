@@ -41,6 +41,8 @@ app.use(express.static(path.join(__dirname, './public')));
 
 app.use('/', usuarioRoutes);
 
-app.listen(3000, () => {
-  console.log('Servidor Iniciando na porta 3000');
-});
+// app.listen(3000, () => {
+//   console.log('Servidor Iniciando na porta 3000');
+// });
+
+export default app;
