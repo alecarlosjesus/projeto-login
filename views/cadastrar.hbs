@@ -1,0 +1,24 @@
+<h2>Cadastro de Novo Usuário</h2>
+
+<div>
+    <form action="/cadastrar" method="post">
+        <fieldset>
+            <legend>Cadastro de Usuário</legend>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Digite seu email" required>
+            </div>
+            <div>
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+            </div>
+            <div>
+                <button type="submit">Cadastrar</button>
+            </div>
+            <p>
+                Já possui cadastro?
+                <a href="/login">Acesse aqui</a>
+            </p>
+        </fieldset>
+    </form>
+</div>
