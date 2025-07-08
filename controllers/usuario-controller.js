@@ -6,7 +6,7 @@ export function loginView(req, res) {
   });
 }
 
-export async function validarUsuario(req, res) {
+export async function validarUsuarioPost(req, res) {
   const { email, senha } = req.body;
 
   const usuario = await validarUsuario(email, senha);
