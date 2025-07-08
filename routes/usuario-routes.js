@@ -1,4 +1,4 @@
-// routes/usuario-routes.js
+// ./routes/usuario-routes.js
 
 import express from 'express';
 import {
@@ -13,13 +13,16 @@ import {
 const router = express.Router();
 
 // Rota GET para exibir a página de login
-router.get('/', homeView);
-
-// Rota GET para exibir a página de login
 router.get('/login', loginView);
 
 // Rota POST para processar o formulário de login
-router.post('/validacao', validarUsuarioPost);
+router.post('/login', validarUsuarioPost);
+
+// Rota GET para exibir a página de cadastro
+router.get('/cadastro', cadastroView);
+
+// Rota POST para processar o formulário de cadastro
+router.post('/cadastro', cadastroUsuarioPost);
 
 // Rota GET protegida para exibir a página inicial
 router.get('/home', homeView);
@@ -27,10 +30,7 @@ router.get('/home', homeView);
 // Rota GET para encerrar a sessão e redirecionar ao login
 router.get('/logout', logout);
 
-// Rota GET para exibir a página de cadastro
-router.get('/cadastro', cadastroView);
-// Rota POST para processar o formulário de cadastro
-router.post('/cadastro', cadastroUsuarioPost);
+// Redireciona a rota raiz para login
+router.get('/', (req, res) => res.redirect('/login'));
 
 export default router;
- 
