@@ -31,7 +31,7 @@ export async function cadastroUsuarioPost(req, res) {
   const { email, senha } = req.body;
 
   const resultado = await inserirUsuario({ email, senha });
-
+  alert(resultado);
   if (resultado) {
     res.redirect('/login');
   } else {
