@@ -1,4 +1,4 @@
-import { validarUsuario as validarNoBanco } from '../models/usuario-model.js';
+import { validarUsuario } from '../models/usuario-model.js';
 
 export function loginView(req, res) {
   res.render('login', {
@@ -9,7 +9,7 @@ export function loginView(req, res) {
 export async function validarUsuario(req, res) {
   const { email, senha } = req.body;
 
-  const usuario = await validarNoBanco(email, senha);
+  const usuario = await validarUsuario(email, senha);
 
   if (usuario) {
     req.session.usuario = usuario.email;
@@ -41,15 +41,15 @@ export function logout(req, res) {
 
 import { inserirUsuario } from '../models/usuario-model.js';
 
-export function cadastrarView(req, res) {
-  res.render('cadastrar', {
+export function cadastroView(req, res) {
+  res.render('cadastro', {
     title: 'Cadastro'
   });
 }
 
-export async function cadastrarUsuario(req, res) {
+export async function cadastroUsuario(req, res) {
   const { email, senha } = req.body;
 
-  await inserirUsuario(email, senha);
+  await inserirUsuario({ email, senha });
   res.redirect('/login');
 }

@@ -6,8 +6,8 @@ import {
   validarUsuario,
   homeView,
   logout,
-  cadastrarView,
-  cadastrarUsuario
+  cadastroView,
+  cadastroUsuario
 } from '../controllers/usuario-controller.js';
 
 const router = express.Router();
@@ -28,9 +28,9 @@ router.get('/home', homeView);
 router.get('/logout', logout);
 
 // Rota GET para exibir a página de cadastro
-router.get('/cadastrar', cadastrarView);
+router.get('/cadastro', cadastroView);
 // Rota POST para processar o formulário de cadastro
-router.post('/cadastrar', cadastrarUsuario);
+router.post('/cadastro', cadastroUsuario);
 
 export default router;
  
