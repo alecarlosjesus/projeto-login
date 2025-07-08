@@ -27,7 +27,7 @@ export function cadastroView(req, res) {
   });
 }
 
-export async function cadastrarUsuarioPost(req, res) {
+export async function cadastroUsuarioPost(req, res) {
   const { email, senha } = req.body;
 
   const resultado = await inserirUsuario({ email, senha });
