@@ -1,4 +1,6 @@
-import { validarUsuario } from '../models/usuario-model.js';
+// ./controllers/usuario-controller.js
+
+import { validarUsuario, inserirUsuario } from '../models/usuario-model.js';
 
 export function loginView(req, res) {
   res.render('login', {
@@ -16,6 +18,24 @@ export async function validarUsuarioPost(req, res) {
     res.redirect('/home');
   } else {
     res.redirect('/login');
+  }
+}
+
+export function cadastroView(req, res) {
+  res.render('cadastro', {
+    title: 'Cadastro'
+  });
+}
+
+export async function cadastrarUsuarioPost(req, res) {
+  const { email, senha } = req.body;
+
+  const resultado = await inserirUsuario({ email, senha });
+
+  if (resultado) {
+    res.redirect('/login');
+  } else {
+    res.redirect('/cadastro');
   }
 }
 
@@ -37,19 +57,4 @@ export function logout(req, res) {
     }
     res.redirect('/login');
   });
-}
-
-import { inserirUsuario } from '../models/usuario-model.js';
-
-export function cadastroView(req, res) {
-  res.render('cadastro', {
-    title: 'Cadastro'
-  });
-}
-
-export async function cadastroUsuario(req, res) {
-  const { email, senha } = req.body;
-
-  await inserirUsuario({ email, senha });
-  res.redirect('/login');
 }
