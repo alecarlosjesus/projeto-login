@@ -3,7 +3,7 @@
 import express from 'express';
 import {
   loginView,
-  validarUsuario,
+  validarUsuarioPost,
   homeView,
   logout,
   cadastroView,
@@ -19,7 +19,7 @@ router.get('/', homeView);
 router.get('/login', loginView);
 
 // Rota POST para processar o formulário de login
-router.post('/validacao', validarUsuario);
+router.post('/validacao', validarUsuarioPost);
 
 // Rota GET protegida para exibir a página inicial
 router.get('/home', homeView);
