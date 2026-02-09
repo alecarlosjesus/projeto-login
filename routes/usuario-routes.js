@@ -24,7 +24,8 @@ router.get('/home', homeView);
 // Rota GET para encerrar a sessão e redirecionar ao login
 router.get('/logout', logout);
 
-
+// Redireciona a rota raiz para login
+router.get('/', (req, res) => res.redirect('/login'));
 
 
 // Rota GET para exibir a página de cadastro
