@@ -1,0 +1,22 @@
+<h2>Login</h2>
+
+<form action="/validacao" method="POST">
+    <fieldset>
+        <legend>Login</legend>
+        <div>
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email" required placeholder="E-mail" />
+        </div>
+        <div>
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha" required placeholder="Senha" />
+        </div>
+        <div>
+            <button type="submit">Entrar</button>
+        </div>
+        <p>
+            Não possui cadastro?
+            <a href="/cadastrar">Acesse aqui</a>
+        </p>
+    </fieldset>
+</form>

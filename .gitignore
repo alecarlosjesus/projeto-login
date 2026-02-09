@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Compiled output
+dist/
+
+# Runtime data
+package-lock.json
+yarn.lock
+
+# System
+.DS_Store
+
+# Environment variables
+.env
+
+# IDEs
+.vscode/
+.idea/

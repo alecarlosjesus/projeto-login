@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/estilo.css"/>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                {{#if usuario}}
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                {{else}}
+                {{#if (eq title "Login")}}
+                    <li><a href="/login">Login</a></li>
+                {{/if}}
+                {{#if (eq title "Cadastro")}}
+                    <li><a href="/cadastrar">Cadastrar</a></li>
+                {{/if}}
+                {{/if}}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {{{body}}}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Meu Projeto Web</p>
+    </footer>
+</body>
+</html>
+
+
