@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 
 app.use(express.static(path.join(__dirname, './public')));
 
-app.use('/', usuarioRoutes);
+app.use('/usuarios', usuarioRoutes);
 
 
 // Trecho removido do código para evitar a execução do servidor local
