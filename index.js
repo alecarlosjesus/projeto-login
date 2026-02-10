@@ -39,14 +39,14 @@ app.use((req, res, next) => {
 
 app.use(express.static(path.join(__dirname, './public')));
 
-app.use('/usuario', usuarioRoutes);
+app.use('/', usuarioRoutes);
 
-/*
-Trecho removido do código para evitar a execução do servidor local
-app.listen(3000, () => {
-console.log(‘Servidor Iniciando na porta 3000’);
-});
-*/
+
+// Trecho removido do código para evitar a execução do servidor local
+// app.listen(3000, () => {
+// console.log("Servidor Iniciando na porta 3000");
+// });
+
 /*
 Exportando o app para ser utilizado em outros módulos e servidores dentro da
 plataforma Vercel.
