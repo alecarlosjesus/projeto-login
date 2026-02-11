@@ -42,3 +42,8 @@ export async function inserirUsuario(usuario) {
     
     return data;
 }
+
+export default {
+    validarUsuario,
+    inserirUsuario
+};
