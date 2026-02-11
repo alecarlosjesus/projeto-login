@@ -29,7 +29,7 @@ export function cadastroView(req, res) {
 
 export async function cadastroUsuarioPost(req, res) {
     const { email, senha } = req.body;
-
+        console.log('Dados recebidos para cadastro:', { email, senha }); // Log para depuração
     const resultado = await inserirUsuario({ email, senha });
 
     if (resultado) {
