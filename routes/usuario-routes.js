@@ -7,7 +7,7 @@ import {
     homeView,
     logout,
     cadastroView,
-    cadastrarUsuarioPost
+    cadastroUsuarioPost
 } from '../controllers/usuario-controller.js';
 
 const router = express.Router();
@@ -22,7 +22,7 @@ router.post('/login', validarUsuarioPost);
 router.get('/cadastro', cadastroView);
 
 // Rota POST para processar o formulário de cadastro
-router.post('/cadastro', cadastrarUsuarioPost);
+router.post('/cadastro', cadastroUsuarioPost);
 
 // Rota GET protegida para exibir a página inicial
 router.get('/home', homeView);
