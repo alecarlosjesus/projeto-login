@@ -22,7 +22,7 @@ export async function validarUsuarioPost(req, res) {
 }
 
 export function cadastroView(req, res) {
-    res.render('cadastro', {
+    res.render('cadastrar', {
         title: 'Cadastro'
     });
 }
