@@ -1,5 +1,6 @@
-import { validarUsuario as validarNoBanco, inserirUsuario } from "../models/usuario-model.js";
+// ./controllers/usuario-controller.js
 
+import { validarUsuario, inserirUsuario } from "../models/usuario-model.js";
 
 export function loginView(req, res) {
     res.render('login', {
@@ -7,11 +8,11 @@ export function loginView(req, res) {
     });
 }
 
-export async function validarUsuario(req, res) {
+export async function validarUsuarioPost(req, res) {
     const { email, senha } = req.body;
-    
-    const usuario = await validarNoBanco(email, senha);
-    
+
+    const usuario = await validarUsuario(email, senha);
+
     if (usuario) {
         req.session.usuario = usuario.email;
         res.redirect('/home');
@@ -20,11 +21,29 @@ export async function validarUsuario(req, res) {
     }
 }
 
+export function cadastroView(req, res) {
+    res.render('cadastro', {
+        title: 'Cadastro'
+    });
+}
+
+export async function cadastroUsuarioPost(req, res) {
+    const { email, senha } = req.body;
+
+    const resultado = await inserirUsuario({ email, senha });
+
+    if (resultado) {
+        res.redirect('/login');
+    } else {
+        res.redirect('/cadastro');
+    }
+}
+
 export function homeView(req, res) {
     if (!req.session.usuario) {
         return res.redirect('/login');
     }
-    
+
     res.render('home', {
         title: 'Página Inicial',
         usuario: req.session.usuario
@@ -39,19 +58,3 @@ export function logout(req, res) {
         res.redirect('/login');
     });
 }
-
-export function cadastrarView(req, res) {
-    res.render('cadastrar', {
-        title: 'Cadastro'
-    });
-}
-
-export async function cadastrarUsuario(req, res) {
-    const { email, senha } = req.body;
-    
-    await inserirUsuario(email, senha);
-    res.redirect('/login');
-}
-
-// Exportando as funções do controlador
-export default { loginView, validarUsuario, homeView, logout };
