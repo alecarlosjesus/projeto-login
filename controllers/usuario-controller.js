@@ -58,3 +58,12 @@ export function logout(req, res) {
         res.redirect('/login');
     });
 }
+
+export default {
+    loginView,
+    validarUsuarioPost,
+    cadastroView,
+    cadastroUsuarioPost,
+    homeView,
+    logout
+};
